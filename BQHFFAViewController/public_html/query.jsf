@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="query.jsf" id="d1">
+        <af:resource type="css">
+            tr[id='qryId1:fldItem2'] {
+                display: none;
+            }
+        </af:resource>
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                        <af:outputText value="Blog Query Hide Fields From Add" id="ot12"
+                                       inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Content -->
+                        <af:panelGroupLayout layout="vertical" id="pgl2">
+                            <af:panelHeader text="Employees" id="ph1">
+                                <af:query id="qryId1" headerText="Search" disclosed="true"
+                                          value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                                          model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                          queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                          queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                                          resultComponentId="::resId1"/>
+                            </af:panelHeader>
+                            <af:table value="#{bindings.EmployeesView.collectionModel}" var="row"
+                                      rows="#{bindings.EmployeesView.rangeSize}"
+                                      emptyText="#{bindings.EmployeesView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.EmployeesView.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.EmployeesView.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.EmployeesView.rangeSize}" id="resId1">
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.EmployeeId.name}"
+                                           sortable="true" headerText="#{bindings.EmployeesView.hints.EmployeeId.label}"
+                                           id="resId1c1">
+                                    <af:outputText value="#{row.EmployeeId}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.EmployeeId.tooltip}"
+                                                   id="ot1">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmployeesView.hints.EmployeeId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.FirstName.name}" sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.FirstName.label}" id="resId1c2">
+                                    <af:outputText value="#{row.FirstName}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.FirstName.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.LastName.name}" sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.LastName.label}" id="resId1c3">
+                                    <af:outputText value="#{row.LastName}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.LastName.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.Email.name}" sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.Email.label}" id="resId1c4">
+                                    <af:outputText value="#{row.Email}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.Email.tooltip}" id="ot4"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.PhoneNumber.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.PhoneNumber.label}" id="resId1c5">
+                                    <af:outputText value="#{row.PhoneNumber}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.PhoneNumber.tooltip}"
+                                                   id="ot5"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.HireDate.name}" sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.HireDate.label}" id="resId1c6">
+                                    <af:outputText value="#{row.HireDate}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.HireDate.tooltip}"
+                                                   id="ot6">
+                                        <af:convertDateTime pattern="#{bindings.EmployeesView.hints.HireDate.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.JobId.name}" sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.JobId.label}" id="resId1c7">
+                                    <af:outputText value="#{row.JobId}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.JobId.tooltip}" id="ot7"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.Salary.name}" sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.Salary.label}" id="resId1c8">
+                                    <af:outputText value="#{row.Salary}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.Salary.tooltip}" id="ot8">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmployeesView.hints.Salary.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.CommissionPct.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.CommissionPct.label}"
+                                           id="resId1c9">
+                                    <af:outputText value="#{row.CommissionPct}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.CommissionPct.tooltip}"
+                                                   id="ot9">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmployeesView.hints.CommissionPct.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.ManagerId.name}" sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.ManagerId.label}" id="resId1c10">
+                                    <af:outputText value="#{row.ManagerId}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.ManagerId.tooltip}"
+                                                   id="ot10">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmployeesView.hints.ManagerId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView.hints.DepartmentId.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.EmployeesView.hints.DepartmentId.label}"
+                                           id="resId1c11">
+                                    <af:outputText value="#{row.DepartmentId}"
+                                                   shortDesc="#{bindings.EmployeesView.hints.DepartmentId.tooltip}"
+                                                   id="ot11">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.EmployeesView.hints.DepartmentId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
